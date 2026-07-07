@@ -74,7 +74,7 @@ Claude 的 `/plugin install` 不会执行 Python 依赖安装脚本。Agent Mech
 也可以手动执行：
 
 ```bash
-cd /Users/aboodie/Desktop/plugins/agent-mecha
+cd <path-to>/agent-mecha
 ./setup-agent-bridge.sh
 ```
 
