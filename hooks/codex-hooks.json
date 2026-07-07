@@ -6,7 +6,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "bash ${CLAUDE_PLUGIN_ROOT}/hooks/agent-bridge/setup.sh",
+            "command": "env AGENT_MECHA_HOST=codex bash ${CLAUDE_PLUGIN_ROOT}/hooks/agent-bridge/setup.sh",
             "timeout": 180
           }
         ]
@@ -18,7 +18,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "bash ${CLAUDE_PLUGIN_ROOT}/hooks/agent-bridge/launch.sh",
+            "command": "env AGENT_MECHA_HOST=codex bash ${CLAUDE_PLUGIN_ROOT}/hooks/agent-bridge/launch.sh",
             "timeout": 10
           }
         ]
@@ -30,7 +30,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "bash ${CLAUDE_PLUGIN_ROOT}/hooks/agent-bridge/launch.sh",
+            "command": "env AGENT_MECHA_HOST=codex bash ${CLAUDE_PLUGIN_ROOT}/hooks/agent-bridge/launch.sh",
             "timeout": 10
           }
         ]
@@ -42,7 +42,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "bash ${CLAUDE_PLUGIN_ROOT}/hooks/agent-bridge/launch.sh",
+            "command": "env AGENT_MECHA_HOST=codex bash ${CLAUDE_PLUGIN_ROOT}/hooks/agent-bridge/launch.sh",
             "timeout": 330
           }
         ]
@@ -54,7 +54,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "bash ${CLAUDE_PLUGIN_ROOT}/hooks/agent-bridge/launch.sh"
+            "command": "env AGENT_MECHA_HOST=codex bash ${CLAUDE_PLUGIN_ROOT}/hooks/agent-bridge/launch.sh"
           }
         ]
       }

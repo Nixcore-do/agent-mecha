@@ -233,6 +233,8 @@ Claude Code uses `./hooks/hooks.json`, where `SessionStart`, `Stop`, and `StopFa
 
 The Codex hook file keeps the same hook events, but runs them synchronously: `SessionStart`, `Stop`, `StopFailure`, `PermissionRequest`, and `Elicitation` are all registered in `./hooks/codex-hooks.json`.
 
+Codex uses a different `PermissionRequest` output protocol than Claude. `./hooks/codex-hooks.json` injects `AGENT_MECHA_HOST=codex`, and the bridge returns Codex's `permissionDecision` field; the Claude path continues to return `decision.behavior`.
+
 Before publishing, update `.claude-plugin/plugin.json` and `.codex-plugin/plugin.json` with the final author, repository, homepage, privacy policy, and terms of service information.
 
 ## Development

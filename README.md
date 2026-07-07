@@ -233,6 +233,8 @@ Claude Code 使用 `./hooks/hooks.json`，其中 `SessionStart`、`Stop` 和 `St
 
 Codex 版保留同一组 hook 事件，但以同步方式执行：`SessionStart`、`Stop`、`StopFailure`、`PermissionRequest` 和 `Elicitation` 都会注册到 `./hooks/codex-hooks.json`。
 
+Codex 的 `PermissionRequest` 输出协议和 Claude 不同。`./hooks/codex-hooks.json` 会注入 `AGENT_MECHA_HOST=codex`，bridge 会返回 Codex 识别的 `permissionDecision` 字段；Claude 路径继续返回 `decision.behavior`。
+
 发布前，请在 `.claude-plugin/plugin.json` 和 `.codex-plugin/plugin.json` 中补充最终的作者、仓库、主页、隐私政策和服务条款信息。
 
 ## 开发说明
