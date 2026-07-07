@@ -1,12 +1,12 @@
 # Scripts
 
-Reusable command implementations live here.
+这里存放可复用的命令实现。
 
-Use capability-specific folders:
+按能力拆分子目录：
 
 ```text
 scripts/
   agent-bridge/
 ```
 
-Scripts should accept structured input where practical and return structured output for hook and bridge integrations.
+脚本应尽量接收结构化输入，并为 hook 和 bridge 集成返回结构化输出。

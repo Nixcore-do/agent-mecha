@@ -1,13 +1,13 @@
 {
   "name": "agent-mecha",
   "version": "0.1.0",
-  "description": "Engineering exoskeleton for agent CLIs: bridge workflows, hooks, permission gates, notifications, and automation skills.",
+  "description": "Agent 的工程外骨骼",
   "author": {
-    "name": "Local developer"
+    "name": "Nixcore"
   },
   "license": "MIT",
   "keywords": [
-    "agent-cli",
+    "agent",
     "hooks",
     "agent-bridge",
     "automation",
@@ -15,10 +15,10 @@
   ],
   "skills": "./skills/",
   "interface": {
-    "displayName": "Agent Mecha",
-    "shortDescription": "Engineering harness for agent CLI workflows.",
-    "longDescription": "Agent Mecha extends agent CLIs with reusable skills for bridge workflows, hook runners, permission gates, notification routing, and automation patterns.",
-    "developerName": "Local developer",
+    "displayName": "Agent Mecha 智能体机甲",
+    "shortDescription": "面向 Agent 的工程化扩展套件。",
+    "longDescription": "Agent Mecha 为 Agent 提供可复用的工程化能力，帮助 agent 与 hooks、外部工具、后台进程、UI 和其他工作流协作。",
+    "developerName": "Nixcore",
     "category": "Developer Tools",
     "capabilities": [
       "Interactive",
@@ -26,9 +26,9 @@
       "Write"
     ],
     "defaultPrompt": [
-      "Help me design an agent CLI hook workflow.",
-      "Set up an agent bridge capability.",
-      "Review my CLI automation harness."
+      "帮我设计一个 Agent 扩展能力。",
+      "帮我搭建 Agent 的工程化工作流。",
+      "帮我审查 Agent 扩展的目录结构。"
     ]
   }
 }

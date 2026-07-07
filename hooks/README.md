@@ -1,12 +1,12 @@
 # Hooks
 
-Hook examples and runtime configs live here.
+这里存放 hook 示例和运行时配置。
 
-Use subdirectories by capability:
+按能力拆分子目录：
 
 ```text
 hooks/
   agent-bridge/
 ```
 
-Keep hook payload contracts documented next to the hook example that consumes them.
+hook payload 契约应和消费它的 hook 示例放在一起。

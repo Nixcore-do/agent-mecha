@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="stage">
+    <section class="dialog">
+      <header class="header">
+        <div class="brand-row">
+          <span class="status-mark"></span>
+          <span class="brand" id="brand"></span>
+          <span class="pill">Permission</span>
+        </div>
+        <h1 id="headline"></h1>
+        <p id="subtitle"></p>
+      </header>
+
+      <section class="request-panel">
+        <div class="card-head">
+          <div class="tool-row">
+            <span class="tool-label" id="toolLabel"></span>
+            <span class="tool-name" id="toolName"></span>
+          </div>
+          <button class="toggle" id="toggle"></button>
+        </div>
+
+        <div class="summary" id="summary"></div>
+
+        <div class="detail-wrap" id="detailWrap">
+          <pre class="detail" id="detail"></pre>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <button class="btn deny" id="deny"></button>
+        <div class="spacer"></div>
+        <button class="btn" id="allow"></button>
+        <button class="btn primary" id="allowRemember"></button>
+      </footer>
+    </section>
+  </div>
+  <script src="./app.js"></script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="stage">
+    <section class="dialog">
+      <header class="header">
+        <div class="brand-row">
+          <span class="status-mark"></span>
+          <span class="brand" id="brand">Agent Bridge</span>
+          <span class="pill">Interaction</span>
+        </div>
+        <h1 id="title"></h1>
+        <p id="message"></p>
+      </header>
+
+      <main class="content" id="content"></main>
+
+      <footer class="footer">
+        <div class="error" id="error"></div>
+        <div class="spacer"></div>
+        <button class="btn" id="cancel"></button>
+        <button class="btn deny" id="decline"></button>
+        <button class="btn primary" id="accept"></button>
+      </footer>
+    </section>
+  </div>
+  <script src="./app.js"></script>
+</body>
+</html>

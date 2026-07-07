@@ -1,8 +1,8 @@
 # Agent Bridge Scripts
 
-Place bridge helper commands here.
+这里存放 bridge 辅助命令。
 
-Suggested files when implementation starts:
+开始实现后，建议补充这些文件：
 
 ```text
 scripts/agent-bridge/

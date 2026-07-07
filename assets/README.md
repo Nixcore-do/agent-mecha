@@ -1,5 +1,5 @@
 # Assets
 
-Plugin icons, logos, and screenshots live here.
+这里存放插件图标、logo 和截图。
 
-Before referencing assets from `.codex-plugin/plugin.json`, add the actual files under this directory.
+在 `.codex-plugin/plugin.json` 中引用资源前，请先把实际文件放到这个目录下。

@@ -1,8 +1,8 @@
 # Tests
 
-Add plugin validation, hook contract tests, and script tests here.
+这里存放插件校验、hook 契约测试和脚本测试。
 
-Suggested first checks:
+建议优先补充这些检查：
 
 ```text
 tests/

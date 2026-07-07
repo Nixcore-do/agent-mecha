@@ -1,27 +1,37 @@
 ---
 name: agent-bridge
-description: Use when designing, reviewing, or implementing an agent bridge workflow that lets an agent CLI coordinate with hooks, external tools, background processes, or another agent.
+description: 用于设计、审查或实现 agent bridge 工作流，让 Agent 能与 hooks、外部工具、后台进程或另一个 agent 协作。
 ---
 
 # Agent Bridge
 
-## Goal
+## 目标
 
-Build bridge workflows that let an agent CLI exchange structured events with another process or tool without hiding control flow from the user.
+构建 bridge 工作流，让 Agent 能和其他进程或工具交换结构化事件，同时不向用户隐藏控制流。
 
-## Checklist
+当前仓库已经包含一套 bridge 实现，位置在 `hooks/agent-bridge/`。
 
-1. Identify the bridge participants: agent CLI, hook, external process, UI, daemon, or remote agent.
-2. Define the event contract: event name, payload schema, response schema, timeout, and failure behavior.
-3. Choose the transport: stdin/stdout JSON, local HTTP, Unix socket, file drop, or another explicit mechanism.
-4. Define user-visible approval points.
-5. Add scripts under `scripts/agent-bridge/`.
-6. Add hook config or examples under `hooks/agent-bridge/`.
-7. Test the bridge with a minimal happy path and at least one failure path.
+## 检查清单
 
-## Rules
+1. 识别 bridge 参与方：Agent、hook、外部进程、UI、daemon 或远程 agent。
+2. 定义事件契约：事件名、请求 payload schema、响应 schema、超时和失败行为。
+3. 选择传输方式：stdin/stdout JSON、本地 HTTP、Unix socket、文件投递，或其他明确机制。
+4. 定义用户可见的审批点。
+5. 将脚本放在 `scripts/agent-bridge/` 下。
+6. 将 hook 配置或示例放在 `hooks/agent-bridge/` 下。
+7. 用最小成功路径和至少一个失败路径测试 bridge。
 
-- Prefer structured JSON over free-form text for machine boundaries.
-- Keep bridge actions auditable: log event names, decisions, and errors.
-- Do not let a bridge silently execute destructive actions.
-- Make timeouts and cancellation behavior explicit.
+## 已有实现入口
+
+- `hooks/agent-bridge/launch.sh`: hook 命令入口。
+- `hooks/agent-bridge/bridge.py`: Python 事件分发入口。
+- `hooks/agent-bridge/config/agent-bridge.json`: 默认 UI 和行为配置。
+- `hooks/agent-bridge/claude-settings.example.json`: Claude Code hook 注册示例。
+- `hooks/agent-bridge/tests/`: 不需要 GUI 的单元测试。
+
+## 规则
+
+- 机器边界优先使用结构化 JSON，不使用自由文本。
+- bridge 行为必须可审计：记录事件名、决策和错误。
+- bridge 不得静默执行破坏性动作。
+- 超时和取消行为必须明确。
