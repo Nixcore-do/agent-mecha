@@ -96,6 +96,36 @@ claude --plugin-dir .
 <path-to>/agent-mecha/start-claude-plugin.sh
 ```
 
+### 通过 GitHub 安装
+
+在 Claude Code 会话里运行：
+
+```text
+/plugin marketplace add https://github.com/Nixcore-do/agent-mecha.git
+/plugin install agent-mecha@agent-mecha
+```
+
+等价的终端命令：
+
+```bash
+claude plugin marketplace add https://github.com/Nixcore-do/agent-mecha.git
+claude plugin install agent-mecha@agent-mecha
+```
+
+安装后重新启动 Claude Code，让 hooks 和 skills 在新会话中生效。
+
+确认已安装：
+
+```text
+/plugin details agent-mecha
+```
+
+或使用终端命令：
+
+```bash
+claude plugin details agent-mecha
+```
+
 ### 本地安装
 
 `/plugin install` 不能直接安装本地路径。需要先把本地目录添加为 marketplace，再从该 marketplace 安装插件。
@@ -113,8 +143,6 @@ claude --plugin-dir .
 claude plugin marketplace add <path-to>/agent-mecha
 claude plugin install agent-mecha@agent-mecha
 ```
-
-安装后重新启动 Claude Code，让 hooks 和 skills 在新会话中生效。
 
 确认 Claude 已识别插件组件：
 

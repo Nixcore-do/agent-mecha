@@ -96,6 +96,36 @@ You can also run the included startup script from any directory:
 <path-to>/agent-mecha/start-claude-plugin.sh
 ```
 
+### Install From GitHub
+
+Run these commands inside a Claude Code session:
+
+```text
+/plugin marketplace add https://github.com/Nixcore-do/agent-mecha.git
+/plugin install agent-mecha@agent-mecha
+```
+
+Equivalent terminal commands:
+
+```bash
+claude plugin marketplace add https://github.com/Nixcore-do/agent-mecha.git
+claude plugin install agent-mecha@agent-mecha
+```
+
+Restart Claude Code after installation so hooks and skills are loaded in the new session.
+
+Confirm the installed plugin:
+
+```text
+/plugin details agent-mecha
+```
+
+Or with the terminal command:
+
+```bash
+claude plugin details agent-mecha
+```
+
 ### Local Install
 
 `/plugin install` does not install a local path directly. Add the local directory as a marketplace first, then install the plugin from that marketplace.
@@ -113,8 +143,6 @@ Equivalent terminal commands:
 claude plugin marketplace add <path-to>/agent-mecha
 claude plugin install agent-mecha@agent-mecha
 ```
-
-Restart Claude Code after installation so hooks and skills are loaded in the new session.
 
 Confirm that Claude recognizes the plugin components:
 
