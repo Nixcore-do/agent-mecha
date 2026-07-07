@@ -66,7 +66,7 @@ agent-mecha/
 也可以手动安装依赖：
 
 ```bash
-cd /Users/aboodie/Desktop/plugins/agent-mecha
+cd <path-to>/agent-mecha
 ./setup-agent-bridge.sh
 ```
 
@@ -74,15 +74,17 @@ cd /Users/aboodie/Desktop/plugins/agent-mecha
 
 ## 安装说明
 
-Claude Code 本地开发时，可以直接指定插件目录。
+### 开发直连
 
-如果当前目录是 `/Users/aboodie/Desktop/plugins`：
+Claude Code 本地开发时，可以直接指定插件目录，不需要先安装。
+
+如果当前目录是 `agent-mecha` 的上一级目录：
 
 ```bash
 claude --plugin-dir ./agent-mecha
 ```
 
-如果当前目录是 `/Users/aboodie/Desktop/plugins/agent-mecha`：
+如果当前目录是 `agent-mecha` 根目录：
 
 ```bash
 claude --plugin-dir .
@@ -91,8 +93,28 @@ claude --plugin-dir .
 也可以从任意目录运行项目自带启动脚本：
 
 ```bash
-/Users/aboodie/Desktop/plugins/agent-mecha/start-claude-plugin.sh
+<path-to>/agent-mecha/start-claude-plugin.sh
 ```
+
+### 本地安装
+
+`/plugin install` 不能直接安装本地路径。需要先把本地目录添加为 marketplace，再从该 marketplace 安装插件。
+
+在 Claude Code 会话里运行：
+
+```text
+/plugin marketplace add <path-to>/agent-mecha
+/plugin install agent-mecha@agent-mecha-dev
+```
+
+等价的终端命令：
+
+```bash
+claude plugin marketplace add <path-to>/agent-mecha
+claude plugin install agent-mecha@agent-mecha-dev
+```
+
+安装后重新启动 Claude Code，让 hooks 和 skills 在新会话中生效。
 
 确认 Claude 已识别插件组件：
 
@@ -103,13 +125,25 @@ claude --plugin-dir ./agent-mecha plugin details agent-mecha
 也可以直接运行项目自带脚本：
 
 ```bash
-/Users/aboodie/Desktop/plugins/agent-mecha/check-claude-plugin.sh
+<path-to>/agent-mecha/check-claude-plugin.sh
 ```
 
 输出里应该能看到：
 
 ```text
 Hooks (...) SessionStart, Stop, StopFailure, Elicitation, PermissionRequest
+```
+
+如果是通过 `/plugin install` 安装的版本，也可以这样查看：
+
+```text
+/plugin details agent-mecha
+```
+
+或使用终端命令：
+
+```bash
+claude plugin details agent-mecha
 ```
 
 注意：这些 hook 不是启动时都会触发。`Stop` 在 agent 回复结束时触发，`PermissionRequest` 只在需要权限审批时触发，`Elicitation` 只在需要表单输入时触发。调试 hook 时可以启动：
@@ -121,7 +155,7 @@ claude --plugin-dir ./agent-mecha --debug hooks
 也可以直接运行项目自带脚本：
 
 ```bash
-/Users/aboodie/Desktop/plugins/agent-mecha/debug-claude-hooks.sh
+<path-to>/agent-mecha/debug-claude-hooks.sh
 ```
 
 如果要同时打开 bridge 自身的日志：
@@ -134,6 +168,35 @@ bridge 日志位于系统临时目录。macOS 上通常类似：
 
 ```text
 /var/folders/.../T/agent-bridge/agent-mecha/
+```
+
+### 卸载
+
+在 Claude Code 会话里卸载插件：
+
+```text
+/plugin uninstall agent-mecha
+```
+
+如果不再需要这个本地 marketplace，也可以移除 marketplace：
+
+```text
+/plugin marketplace remove agent-mecha-dev
+```
+
+等价的终端命令：
+
+```bash
+claude plugin uninstall agent-mecha
+claude plugin marketplace remove agent-mecha-dev
+```
+
+卸载只会移除 Claude Code 已安装的插件和 marketplace 配置，不会删除本地源码目录 `<path-to>/agent-mecha`。
+
+如果只想清理运行时依赖，可以删除本地虚拟环境，下一次启动时会重新自举安装：
+
+```bash
+rm -rf <path-to>/agent-mecha/.venv
 ```
 
 本地 Codex 开发时，插件入口由 `.codex-plugin/plugin.json` 描述，技能目录来自 `./skills/`。
