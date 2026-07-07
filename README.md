@@ -1,6 +1,17 @@
 # Agent Mecha
 
-Agent Mecha 是面向 Agent 的工程化插件，目前提供 `agent-bridge` 能力。
+Agent Mecha 是面向 Agent 的工程化实用插件。
+
+## 功能概览
+
+- **agent-bridge 本地交互桥**：在 Agent 需要用户注意、确认、授权或输入时，弹出本地 UI 或通知。
+
+- **插件化安装**：提供标准插件入口，安装后可通过 skills 和 hooks 复用这些能力。
+
+## 支持 Agent
+
+- Claude Code
+- Codex
 
 本页只说明如何从 GitHub 安装。
 

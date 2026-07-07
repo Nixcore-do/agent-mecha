@@ -1,6 +1,17 @@
 # Agent Mecha
 
-Agent Mecha is an engineering plugin for agents. It currently provides the `agent-bridge` capability.
+Agent Mecha is a practical engineering plugin for agents.
+
+## Feature Overview
+
+- **agent-bridge local interaction bridge**: shows local UI or notifications when an agent needs user attention, confirmation, authorization, or input.
+
+- **Plugin installation**: provides standard plugin entry points so these capabilities can be reused through skills and hooks after installation.
+
+## Supported Agents
+
+- Claude Code
+- Codex
 
 This page only covers installing from GitHub.
 
