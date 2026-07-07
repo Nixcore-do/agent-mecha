@@ -13,7 +13,7 @@ Agent Mecha is a practical engineering plugin for agents.
 - Claude Code
 - Codex
 
-This page only covers installing from GitHub.
+This page covers installing and uninstalling from GitHub.
 
 ## Codex Installation
 
@@ -60,4 +60,70 @@ Or run in your terminal:
 
 ```bash
 claude plugin details agent-mecha
+```
+
+## Uninstall
+
+### Codex Uninstall
+
+Run in your terminal:
+
+```bash
+codex plugin remove agent-mecha@agent-mecha
+```
+
+If you no longer need this marketplace source, remove it too:
+
+```bash
+codex plugin marketplace list
+codex plugin marketplace remove agent-mecha
+```
+
+`agent-mecha@agent-mecha` means `plugin-name@marketplace-name`. If `codex plugin marketplace list` shows a different marketplace name, use that name instead.
+
+Restart Codex after uninstalling so the plugin skills and hooks stop taking effect.
+
+Confirm the result:
+
+```bash
+codex plugin list
+```
+
+### Claude Code Uninstall
+
+Run inside a Claude Code session:
+
+```text
+/plugin uninstall agent-mecha@agent-mecha
+```
+
+If you no longer need this marketplace source, remove it too:
+
+```text
+/plugin marketplace list
+/plugin marketplace remove agent-mecha
+```
+
+Or run in your terminal:
+
+```bash
+claude plugin uninstall agent-mecha@agent-mecha
+claude plugin marketplace list
+claude plugin marketplace remove agent-mecha
+```
+
+`agent-mecha@agent-mecha` means `plugin-name@marketplace-name`. If `/plugin marketplace list` or `claude plugin marketplace list` shows a different marketplace name, use that name instead.
+
+Run `/reload-plugins` after uninstalling, or restart Claude Code, so the plugin skills and hooks stop taking effect.
+
+Confirm the result:
+
+```text
+/plugin list
+```
+
+Or run in your terminal:
+
+```bash
+claude plugin list
 ```
