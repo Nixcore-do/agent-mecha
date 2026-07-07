@@ -231,7 +231,7 @@ rm -rf <path-to>/agent-mecha/.venv
 
 Claude Code 使用 `./hooks/hooks.json`，其中 `SessionStart`、`Stop` 和 `StopFailure` 可以声明为异步 hook。Codex 当前不支持异步 hook，因此 Codex 入口单独引用不含 `async` 字段的 `./hooks/codex-hooks.json`。
 
-为避免同步 hook 影响交互流畅度，Codex 版只注册必须阻塞等待结果的 `PermissionRequest` 和 `Elicitation`。依赖自举由 `hooks/agent-bridge/launch.sh` 在这些交互 hook 触发时兜底执行。
+Codex 版保留同一组 hook 事件，但以同步方式执行：`SessionStart`、`Stop`、`StopFailure`、`PermissionRequest` 和 `Elicitation` 都会注册到 `./hooks/codex-hooks.json`。
 
 发布前，请在 `.claude-plugin/plugin.json` 和 `.codex-plugin/plugin.json` 中补充最终的作者、仓库、主页、隐私政策和服务条款信息。
 

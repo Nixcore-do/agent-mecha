@@ -231,7 +231,7 @@ For local Codex development, the plugin entry is described by `.codex-plugin/plu
 
 Claude Code uses `./hooks/hooks.json`, where `SessionStart`, `Stop`, and `StopFailure` can be declared as async hooks. Codex does not support async hooks yet, so the Codex entry references a separate `./hooks/codex-hooks.json` file without `async` fields.
 
-To keep synchronous hooks from making the interaction feel sluggish, the Codex hook file only registers `PermissionRequest` and `Elicitation`, which must block while waiting for a result. Dependency bootstrap is still covered by `hooks/agent-bridge/launch.sh` when one of those interactive hooks runs.
+The Codex hook file keeps the same hook events, but runs them synchronously: `SessionStart`, `Stop`, `StopFailure`, `PermissionRequest`, and `Elicitation` are all registered in `./hooks/codex-hooks.json`.
 
 Before publishing, update `.claude-plugin/plugin.json` and `.codex-plugin/plugin.json` with the final author, repository, homepage, privacy policy, and terms of service information.
 
