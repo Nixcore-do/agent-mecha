@@ -227,7 +227,9 @@ claude plugin marketplace remove agent-mecha
 rm -rf <path-to>/agent-mecha/.venv
 ```
 
-本地 Codex 开发时，插件入口由 `.codex-plugin/plugin.json` 描述，技能目录来自 `./skills/`。
+本地 Codex 开发时，插件入口由 `.codex-plugin/plugin.json` 描述，技能目录来自 `./skills/`，hook 配置来自 `./hooks/codex-hooks.json`。
+
+Claude Code 使用 `./hooks/hooks.json`，其中 `SessionStart`、`Stop` 和 `StopFailure` 可以声明为异步 hook。Codex 当前不支持异步 hook，因此 Codex 入口单独引用不含 `async` 字段的 `./hooks/codex-hooks.json`。
 
 发布前，请在 `.claude-plugin/plugin.json` 和 `.codex-plugin/plugin.json` 中补充最终的作者、仓库、主页、隐私政策和服务条款信息。
 

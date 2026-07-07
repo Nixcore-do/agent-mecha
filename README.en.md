@@ -227,7 +227,9 @@ If you only want to clean runtime dependencies, delete the local virtual environ
 rm -rf <path-to>/agent-mecha/.venv
 ```
 
-For local Codex development, the plugin entry is described by `.codex-plugin/plugin.json`, and skills are loaded from `./skills/`.
+For local Codex development, the plugin entry is described by `.codex-plugin/plugin.json`, skills are loaded from `./skills/`, and hooks are loaded from `./hooks/codex-hooks.json`.
+
+Claude Code uses `./hooks/hooks.json`, where `SessionStart`, `Stop`, and `StopFailure` can be declared as async hooks. Codex does not support async hooks yet, so the Codex entry references a separate `./hooks/codex-hooks.json` file without `async` fields.
 
 Before publishing, update `.claude-plugin/plugin.json` and `.codex-plugin/plugin.json` with the final author, repository, homepage, privacy policy, and terms of service information.
 
