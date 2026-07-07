@@ -12,13 +12,14 @@ def permission_output(decision):
 
 
 def codex_permission_output(decision):
-    if decision.get('behavior') == 'allow':
-        return hook_output('PermissionRequest', permissionDecision='allow')
-    return hook_output(
-        'PermissionRequest',
-        permissionDecision='deny',
-        permissionDecisionReason=decision.get('message') or '用户拒绝了该权限请求。',
-    )
+    behavior = decision.get('behavior')
+    if behavior == 'allow':
+        return hook_output('PermissionRequest', decision={'behavior': 'allow'})
+
+    codex_decision = {'behavior': 'deny'}
+    if decision.get('message'):
+        codex_decision['message'] = decision['message']
+    return hook_output('PermissionRequest', decision=codex_decision)
 
 
 def elicitation_output(action, content=None):

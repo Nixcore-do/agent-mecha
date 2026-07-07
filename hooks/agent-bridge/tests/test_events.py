@@ -8,7 +8,7 @@ BRIDGE_DIR = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(BRIDGE_DIR))
 
 from core.config import DEFAULT_CONFIG
-from events import notification, question
+from events import notification, permission, question
 
 
 class EventsTest(unittest.TestCase):
@@ -39,6 +39,34 @@ class EventsTest(unittest.TestCase):
         decision = output['hookSpecificOutput']['decision']
         self.assertEqual(decision['behavior'], 'allow')
         self.assertEqual(decision['updatedInput']['answers'], {'请选择安装层级': 'project'})
+
+    def test_permission_handler_shows_window_by_default(self):
+        data = {
+            'hook_event_name': 'PermissionRequest',
+            'tool_name': 'Bash',
+            'tool_input': {'command': 'date'},
+        }
+
+        with patch.dict('os.environ', {}, clear=True):
+            with patch('events.permission.show_permission_window', return_value={'behavior': 'allow'}) as show:
+                output = permission.handle(data, DEFAULT_CONFIG)
+
+        show.assert_called_once_with(data, DEFAULT_CONFIG['permission'])
+        self.assertEqual(output['hookSpecificOutput']['decision'], {'behavior': 'allow'})
+
+    def test_permission_handler_shows_window_for_codex(self):
+        data = {
+            'hook_event_name': 'PermissionRequest',
+            'tool_name': 'Bash',
+            'tool_input': {'command': 'date'},
+        }
+
+        with patch.dict('os.environ', {'AGENT_MECHA_HOST': 'codex'}, clear=True):
+            with patch('events.permission.show_permission_window', return_value={'behavior': 'allow'}) as show:
+                output = permission.handle(data, DEFAULT_CONFIG)
+
+        show.assert_called_once_with(data, DEFAULT_CONFIG['permission'])
+        self.assertEqual(output['hookSpecificOutput']['decision'], {'behavior': 'allow'})
 
 
 if __name__ == '__main__':

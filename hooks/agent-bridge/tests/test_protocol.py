@@ -24,16 +24,19 @@ class ProtocolTest(unittest.TestCase):
             output = permission_output({'behavior': 'allow', 'updatedPermissions': [{'x': 1}]})
 
         self.assertEqual(output['hookSpecificOutput']['hookEventName'], 'PermissionRequest')
-        self.assertEqual(output['hookSpecificOutput']['permissionDecision'], 'allow')
-        self.assertNotIn('decision', output['hookSpecificOutput'])
+        self.assertEqual(output['hookSpecificOutput']['decision'], {'behavior': 'allow'})
+        self.assertNotIn('permissionDecision', output['hookSpecificOutput'])
         self.assertNotIn('updatedPermissions', output['hookSpecificOutput'])
 
     def test_permission_output_uses_codex_deny_shape(self):
         with patch.dict(os.environ, {'AGENT_MECHA_HOST': 'codex'}):
             output = permission_output({'behavior': 'deny', 'message': 'no'})
 
-        self.assertEqual(output['hookSpecificOutput']['permissionDecision'], 'deny')
-        self.assertEqual(output['hookSpecificOutput']['permissionDecisionReason'], 'no')
+        self.assertEqual(output['hookSpecificOutput']['decision'], {
+            'behavior': 'deny',
+            'message': 'no',
+        })
+        self.assertNotIn('permissionDecision', output['hookSpecificOutput'])
 
 
 if __name__ == '__main__':
