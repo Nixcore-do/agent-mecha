@@ -1,0 +1,34 @@
+{
+  "name": "agent-mecha",
+  "version": "0.1.0",
+  "description": "Engineering exoskeleton for agent CLIs: bridge workflows, hooks, permission gates, notifications, and automation skills.",
+  "author": {
+    "name": "Local developer"
+  },
+  "license": "MIT",
+  "keywords": [
+    "agent-cli",
+    "hooks",
+    "agent-bridge",
+    "automation",
+    "skills"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Agent Mecha",
+    "shortDescription": "Engineering harness for agent CLI workflows.",
+    "longDescription": "Agent Mecha extends agent CLIs with reusable skills for bridge workflows, hook runners, permission gates, notification routing, and automation patterns.",
+    "developerName": "Local developer",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Help me design an agent CLI hook workflow.",
+      "Set up an agent bridge capability.",
+      "Review my CLI automation harness."
+    ]
+  }
+}
