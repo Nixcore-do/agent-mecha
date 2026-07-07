@@ -1,0 +1,20 @@
+{
+  "name": "agent-mecha",
+  "description": "Agent 的工程外骨骼：提供可复用的工程化扩展能力。",
+  "version": "0.1.0",
+  "author": {
+    "name": "Nixcore"
+  },
+  "homepage": "https://github.com/Nixcore/agent-mecha",
+  "repository": "https://github.com/Nixcore/agent-mecha",
+  "license": "MIT",
+  "keywords": [
+    "agent",
+    "hooks",
+    "agent-bridge",
+    "automation",
+    "skills"
+  ],
+  "skills": "./skills/",
+  "hooks": "./hooks/hooks.json"
+}

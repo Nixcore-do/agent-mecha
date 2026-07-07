@@ -9,7 +9,7 @@ if str(BRIDGE_DIR) not in sys.path:
 
 from core.config import load_config
 from core.io import print_json, read_stdin_json
-from core.logging import exception
+from core.logging import debug, exception
 from core.routing import route_event
 from events import elicitation, notification, permission, question
 
@@ -32,16 +32,22 @@ def dispatch(data, config):
 def main():
     try:
         data = read_stdin_json()
+        debug('bridge', 'received', {
+            'hook_event_name': data.get('hook_event_name'),
+            'tool_name': data.get('tool_name'),
+        })
     except Exception:
         exception('bridge', 'stdin-error')
         return
 
     try:
-        print_json(dispatch(data, load_config()))
+        config = load_config()
+        route = route_event(data)
+        debug('bridge', 'route', {'route': route})
+        print_json(dispatch(data, config))
     except Exception:
         exception('bridge', 'dispatch-error')
 
 
 if __name__ == '__main__':
     main()
-

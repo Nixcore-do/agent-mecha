@@ -53,11 +53,32 @@ Claude Code 的 hook 示例配置见：
 hooks/agent-bridge/claude-settings.example.json
 ```
 
+确认插件 hook 被 Claude 识别：
+
+```bash
+claude --plugin-dir ./agent-mecha plugin details agent-mecha
+```
+
 如果把这份配置合并到项目的 `.claude/settings.json`，请确认命令路径能从目标项目根目录访问：
 
 ```text
 bash hooks/agent-bridge/launch.sh
 ```
+
+## 依赖
+
+弹窗 UI 依赖 `pywebview`。
+
+Claude 的 `/plugin install` 不会执行 Python 依赖安装脚本。Agent Mecha 通过 `SessionStart` hook 在运行时自举依赖：首次启动时会异步创建 `.venv` 并安装 `requirements.txt`。
+
+也可以手动执行：
+
+```bash
+cd /Users/aboodie/Desktop/plugins/agent-mecha
+./setup-agent-bridge.sh
+```
+
+插件的 `launch.sh` 会优先使用插件根目录下的 `.venv`。如果没有安装该依赖，hook 仍会进入 Python，但需要 UI 的路径会写入 `bridge.log`，不会显示弹窗。
 
 ## 运行时文件
 
@@ -65,6 +86,12 @@ bash hooks/agent-bridge/launch.sh
 
 ```text
 /tmp/agent-bridge/<project-name>/
+```
+
+macOS 上实际目录通常在：
+
+```text
+/var/folders/.../T/agent-bridge/<project-name>/
 ```
 
 运行时日志、`.pyc` 和 `.DS_Store` 不应提交。
