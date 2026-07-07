@@ -104,14 +104,14 @@ claude --plugin-dir .
 
 ```text
 /plugin marketplace add <path-to>/agent-mecha
-/plugin install agent-mecha@agent-mecha-dev
+/plugin install agent-mecha@agent-mecha
 ```
 
 等价的终端命令：
 
 ```bash
 claude plugin marketplace add <path-to>/agent-mecha
-claude plugin install agent-mecha@agent-mecha-dev
+claude plugin install agent-mecha@agent-mecha
 ```
 
 安装后重新启动 Claude Code，让 hooks 和 skills 在新会话中生效。
@@ -178,17 +178,17 @@ bridge 日志位于系统临时目录。macOS 上通常类似：
 /plugin uninstall agent-mecha
 ```
 
-如果不再需要这个本地 marketplace，也可以移除 marketplace：
+如果不再需要这个 marketplace，也可以移除 marketplace：
 
 ```text
-/plugin marketplace remove agent-mecha-dev
+/plugin marketplace remove agent-mecha
 ```
 
 等价的终端命令：
 
 ```bash
 claude plugin uninstall agent-mecha
-claude plugin marketplace remove agent-mecha-dev
+claude plugin marketplace remove agent-mecha
 ```
 
 卸载只会移除 Claude Code 已安装的插件和 marketplace 配置，不会删除本地源码目录 `<path-to>/agent-mecha`。

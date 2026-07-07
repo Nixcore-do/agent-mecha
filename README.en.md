@@ -104,14 +104,14 @@ Run these commands inside a Claude Code session:
 
 ```text
 /plugin marketplace add <path-to>/agent-mecha
-/plugin install agent-mecha@agent-mecha-dev
+/plugin install agent-mecha@agent-mecha
 ```
 
 Equivalent terminal commands:
 
 ```bash
 claude plugin marketplace add <path-to>/agent-mecha
-claude plugin install agent-mecha@agent-mecha-dev
+claude plugin install agent-mecha@agent-mecha
 ```
 
 Restart Claude Code after installation so hooks and skills are loaded in the new session.
@@ -178,17 +178,17 @@ Uninstall the plugin inside a Claude Code session:
 /plugin uninstall agent-mecha
 ```
 
-If you no longer need this local marketplace, remove it too:
+If you no longer need this marketplace, remove it too:
 
 ```text
-/plugin marketplace remove agent-mecha-dev
+/plugin marketplace remove agent-mecha
 ```
 
 Equivalent terminal commands:
 
 ```bash
 claude plugin uninstall agent-mecha
-claude plugin marketplace remove agent-mecha-dev
+claude plugin marketplace remove agent-mecha
 ```
 
 Uninstalling removes the installed Claude Code plugin and marketplace configuration. It does not delete the local source directory at `<path-to>/agent-mecha`.

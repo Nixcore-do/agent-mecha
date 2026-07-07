@@ -1,6 +1,6 @@
 {
-  "name": "agent-mecha-dev",
-  "description": "Agent Mecha 本地开发 marketplace",
+  "name": "agent-mecha",
+  "description": "Agent Mecha marketplace",
   "owner": {
     "name": "Nixcore"
   },
