@@ -42,8 +42,23 @@
 `web/`
 : pywebview 使用的静态资源。
 
+`web/themes/`
+: agent-bridge 弹窗皮肤。`active.css` 选择当前皮肤，内置 `default`、`claude`、`codex`。
+
 `config/`
 : 可调整的 bridge 配置。
+
+## 皮肤切换
+
+运行：
+
+```bash
+python3 skills/agent-brgidge-skins/scripts/skin_manager.py --list
+python3 skills/agent-brgidge-skins/scripts/skin_manager.py codex
+python3 skills/agent-brgidge-skins/scripts/skin_manager.py --current
+```
+
+也可以通过 `agent-brgidge-skins` skill 选择皮肤。
 
 ## Hook 注册
 

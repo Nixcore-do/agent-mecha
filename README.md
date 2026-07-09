@@ -6,6 +6,8 @@ Agent Mecha 是面向 Agent 的工程化实用插件。
 
 - **agent-bridge 本地交互桥**：在 Agent 需要用户注意、确认、授权或输入时，弹出本地 UI 或通知。
 
+- **agent-bridge 皮肤切换**：内置 `default`、`claude`、`codex` 三套弹窗皮肤，可通过 `agent-brgidge-skins` skill 或脚本切换。
+
 - **插件化安装**：提供标准插件入口，安装后可通过 skills 和 hooks 复用这些能力。
 
 ## 支持 Agent
